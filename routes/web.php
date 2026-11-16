@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::inertia('/', 'Welcome')->name('home');
+use Inertia\Inertia;
+Route::get('/', function () {
+    return Inertia::render('Home', [
+        'author' => 'Cedrick Fotso',
+    ]);
+})->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
