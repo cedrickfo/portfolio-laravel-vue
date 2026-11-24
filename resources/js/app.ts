@@ -4,6 +4,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { initializeFlashToast } from '@/lib/flashToast';
+import PublicLayout from '@/layouts/PublicLayout.vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -19,10 +20,9 @@ layout: (name) => {
         case name === 'Dashboard' || name.startsWith('admin/'):
             return AppLayout;
         default:
-            return null;
+            return PublicLayout;
     }
 },
-
 
     withApp: (app) => {
         app.directive('focus', {

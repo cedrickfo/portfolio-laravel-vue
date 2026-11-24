@@ -21,5 +21,8 @@ Route::get('projets', [ProjectController::class, 'index'])
 Route::get('projets/{project:slug}', [ProjectController::class, 'show'])
     ->name('projects.show');
 
+Route::inertia('a-propos', 'About')->name('about');
+
+Route::inertia('contact', 'Contact')->name('contact');
 
 require __DIR__.'/settings.php';
